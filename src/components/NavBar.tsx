@@ -2,16 +2,22 @@ import { Link, NavLink } from "react-router-dom";
 import { Button } from "./ui/button";
 
 const navigationRoutes = [
-    { path: "/", name: "Home" },
+  { path: "/", name: "Home" },
   { path: "/about", name: "About us" },
   { path: "/events", name: "Events" },
   { path: "/resources", name: "Resources" },
   { path: "/contact", name: "Contact" },
 ];
 
-export default function NavBar() {
+type NavBarProps = {
+  className?: string;
+};
+
+export default function NavBar({ className = "" }: NavBarProps) {
   return (
-    <header className="flex items-center justify-center px-8 py-4 min-h-16 bg-transparent">
+    <header
+      className={`flex items-center justify-center px-8 py-4 min-h-16 bg-transparent ${className}`}
+    >
       <div className="container flex items-center justify-between h-full">
         <div className="flex items-center gap-8">
           <div className="brand flex gap-2 items-center">
@@ -44,14 +50,15 @@ export default function NavBar() {
         </div>
 
         <div className="donate flex">
-          <Button
-            size="lg"
-            className="bg-dark-red hover:bg-primary-red hover:cursor-pointer rounded-xs px-6 py-4"
-          >
-            <Link to="/donate" className="text-white">
+          <Link to="/donate" className="text-white">
+            <Button
+              size="lg"
+              className="bg-dark-red hover:bg-primary-red hover:cursor-pointer rounded-xs px-6 py-4"
+            >
+              {" "}
               Donate Now
-            </Link>
-          </Button>
+            </Button>
+          </Link>
         </div>
       </div>
     </header>
