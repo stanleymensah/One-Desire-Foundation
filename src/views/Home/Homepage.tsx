@@ -194,10 +194,10 @@ export default function Homepage() {
         <section className="impact flex flex-col w-full max-w-full flex-wrap items-center justify-between gap-4 overflow-hidden px-4 py-8 sm:px-8 lg:px-12">
           <div className="mb-4 text-center">
             <p className="text-xs font-medium uppercase tracking-[0.32em] text-foreground/60">
-              Impact
+              A Glance at our Impact
             </p>
           </div>
-          <div className="w-full flex gap-8 overflow-hidden p-2">
+          <div className="w-full flex gap-4 overflow-hidden p-1">
             {impactValues.map((item, index) => (
               <motion.div
                 key={item.label}
@@ -383,7 +383,7 @@ export default function Homepage() {
           </div>
         </section>
 
-        <section className="w-full overflow-hidden px-5 py-14 sm:px-8 lg:py-20">
+        <section className="w-full overflow-hidden px-5 py-8 sm:px-8 lg:py-10">
           <div className="relative mx-auto max-w-6xl">
             <div className="relative flex min-h-80 flex-col items-center justify-center overflow-hidden bg-neutral-900 px-5 py-14 text-center text-white sm:min-h-96 sm:px-10 lg:min-h-[28rem]">
               <img
