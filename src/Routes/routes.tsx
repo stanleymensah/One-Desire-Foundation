@@ -6,6 +6,7 @@ import Events from "@/views/Events/Events";
 import Resources from "@/views/Resources/Resources";
 import Contact from "@/views/Contact/Contact";
 import Donate from "@/views/Donate/Donate";
+import AllEvents from "@/views/Events/AllEvents";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
         path: "/events",
         element: <Events />,
       },
+      {
+        path: "/events/all",
+        element: <AllEvents />,
+      },
 
       {
         path: "/resources",
@@ -36,8 +41,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/donate",
-        element: <Donate />
-      }
+        element: <Donate />,
+      },
     ],
   },
 ]);

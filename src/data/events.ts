@@ -1,7 +1,7 @@
 import Y4K from "@/assets/Y4K.jpg";
 import OneWash from "@/assets/one-wash.png";
-import Charity from "@/assets/charity-drive.png"
-
+import Charity from "@/assets/charity-drive.png";
+import Launch from "@/assets/launch.png";
 
 type FoundationActivity = {
   name: string;
@@ -17,14 +17,50 @@ type FoundationActivity = {
 
 export const events: FoundationActivity[] = [
   {
-    name: "One Desire Sickle Cell Foundation Soft Launch",
-    type: "Event",
-    link: null,
-    image: null,
+    name: "Osu Community Outreach with White Jades",
+    type: "Collaboration",
+    link: "https://www.linkedin.com/posts/one-desire-foundation_ahead-of-the-christmas-holidays-one-desire-activity-7412201313473830912-beHQ",
+    image: Charity,
     details: {
-      date: "23 September 2024",
+      date: "20 December 2025",
+      time: null,
+      location: "Osu",
+    },
+  },
+
+  {
+    name: "One Wash, One Hope",
+    type: "Campaign",
+    link: "https://www.linkedin.com/posts/one-desire-foundation_onewashonehope-onedesirefoundation-sicklecellawareness-activity-7373377136377647105-ijve",
+    image: OneWash,
+    details: {
+      date: "20 September 2025",
+      time: null,
+      location: "Untamed Empire",
+    },
+  },
+
+  {
+    name: "You For Know",
+    type: "Campaign",
+    link: null,
+    image: Y4K,
+    details: {
+      date: "19 September 2026",
       time: null,
       location: null,
+    },
+  },
+
+  {
+    name: "One Desire Sickle Cell Foundation Soft Launch",
+    type: "Event",
+    link: "https://www.linkedin.com/posts/one-desire-foundation_worldsicklecellmonth-sicklecellawareness-activity-7243903736836673536-8HWN",
+    image: Launch,
+    details: {
+      date: "23 September 2024",
+      time: "10:00AM",
+      location: "Tesano",
     },
   },
   {
@@ -72,28 +108,6 @@ export const events: FoundationActivity[] = [
     },
   },
   {
-    name: "One Wash, One Hope",
-    type: "Campaign",
-    link: null,
-    image: OneWash,
-    details: {
-      date: "20 September 2025",
-      time: null,
-      location: "Untamed Empire",
-    },
-  },
-  {
-    name: "Osu Community Outreach with White Jades",
-    type: "Collaboration",
-    link: 'https://www.linkedin.com/posts/one-desire-foundation_ahead-of-the-christmas-holidays-one-desire-activity-7412201313473830912-beHQ',
-    image: Charity,
-    details: {
-      date: "20 December 2025",
-      time: null,
-      location: "Osu",
-    },
-  },
-  {
     name: "Hugs & Smiles with The Perrie Foundation",
     type: "Collaboration",
     link: null,
@@ -133,17 +147,6 @@ export const events: FoundationActivity[] = [
     image: null,
     details: {
       date: "19 June 2026",
-      time: null,
-      location: null,
-    },
-  },
-  {
-    name: "You For Know",
-    type: "Campaign",
-    link: null,
-    image: Y4K,
-    details: {
-      date: "19 September 2026",
       time: null,
       location: null,
     },

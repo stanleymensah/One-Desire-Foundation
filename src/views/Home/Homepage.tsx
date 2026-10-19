@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { useEffect, useRef, useState } from "react";
+import SectionTitle from "@/components/SectionTitle";
 
 const impactValues = [
   {
@@ -142,81 +143,87 @@ export default function Homepage() {
           <img
             src={heroImage}
             alt="hero"
-            className="block h-[calc(100vh-80px)] w-full object-cover object-center bg-transparent"
+            className="block h-[calc(100vh-80px)] w-full object-cover object-center bg-transparent opacity-0 md:opacity-100"
           />
 
-          <div className="details absolute inset-0 z-20 flex items-center px-6 sm:px-10 lg:px-24">
+          {/* Outer Overlay: Centered on mobile, left-aligned on sm+ */}
+          <div className="details absolute inset-0 z-20 flex items-center justify-center sm:justify-start px-6 sm:px-10 lg:px-24">
             <motion.div
-              className="text flex max-w-xl flex-col gap-4"
+              /* Text container: Centered items & text on mobile, left-aligned on sm+ */
+              className="text flex max-w-xl flex-col items-center sm:items-start text-center sm:text-left gap-4"
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <motion.h2
-                className="font-medium"
+                className="font-medium text-2xl sm:text-3xl md:text-4xl"
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
               >
-                Join the fight <br />
+                Join the fight <br className="hidden sm:inline" />
                 against Sickle Cell
               </motion.h2>
 
               <motion.p
+                className="text-xs sm:text-sm"
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
               >
                 We are a community driven by hope, unity, and unwavering
-                support. <br /> Dedicated to standing beside every patient and
-                family impacted <br /> by sickle cell disease
+                support. <br className="hidden sm:inline" /> Dedicated to
+                standing beside every patient and family impacted{" "}
+                <br className="hidden sm:inline" /> by sickle cell disease
               </motion.p>
 
               <motion.div
-                className="buttons flex items-center gap-4"
+                /* Buttons container: Centered on mobile, left-aligned on sm+ */
+                className="buttons flex flex-wrap items-center justify-center sm:justify-start gap-4 pt-1"
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
               >
-                <Button>
+                <Button className="rounded-xs">
                   <Link to="/donate">Donate Now</Link>
                 </Button>
 
-                <Button variant="ghost" className="flex items-center gap-2">
+                <Button
+                  variant="ghost"
+                  className="flex items-center gap-2 rounded-xs"
+                >
                   <Link to="/resources">Learn More</Link>
-                  <ArrowUpRight />
+                  <ArrowUpRight className="w-4 h-4" />
                 </Button>
               </motion.div>
             </motion.div>
           </div>
         </section>
 
-        <section className="impact flex flex-col w-full max-w-full flex-wrap items-center justify-between gap-4 overflow-hidden px-4 py-8 sm:px-8 lg:px-12">
-          <div className="mb-4 text-center">
-            <p className="text-xs font-medium uppercase tracking-[0.32em] text-foreground/60">
-              A Glance at our Impact
-            </p>
-          </div>
-          <div className="w-full flex gap-4 overflow-hidden p-1">
+        <section className="impact flex flex-col w-full max-w-full items-center justify-between gap-6 px-4 py-8 sm:px-8 lg:px-12">
+          <SectionTitle label="A Glance at our Impact" />
+
+          {/* Responsive Grid Layout */}
+          <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
             {impactValues.map((item, index) => (
               <motion.div
                 key={item.label}
                 initial={{ opacity: 0, y: 32 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.4 }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{
                   duration: 0.55,
-                  delay: index * 0.12,
+                  delay: index * 0.1,
                   ease: "easeOut",
                 }}
-                className="flex min-w-45 flex-1"
+                className="flex w-full"
               >
-                <Card className="flex w-full items-center justify-center gap-2 rounded-xs p-6">
+                <Card className="flex w-full items-center justify-center rounded-xs p-6">
                   <CardContent className="flex w-full flex-row items-center justify-center gap-4 text-center p-0!">
                     <img
                       src={item.image}
                       alt={item.label}
-                      className="h-16 w-16 object-contain"
+                      className="h-16 w-16 shrink-0 object-contain"
                     />
                     <div className="detail flex flex-col items-start gap-1 text-left">
                       <h2 className="text-3xl font-semibold text-dark-red">
@@ -276,15 +283,16 @@ export default function Homepage() {
         </section>
 
         {/* Mission Section */}
-        <section className="relative w-full items-center">
+        <section className="relative w-full items-center my-24 md:my-0">
           <img
             src={missionBanner}
             alt="mission_banner_image"
-            className="w-full object-cover"
+            className="w-full object-cover hidden md:flex"
           />
-          <div className="absolute inset-0 z-50 flex items-center justify-end px-6 sm:px-10 lg:px-20">
+          <div className="absolute inset-0 z-50 flex items-center justify-center sm:justify-end px-4 sm:px-10 lg:px-20">
             <motion.div
-              className="details flex max-w-2xl flex-col gap-2 text-right text-dark-red!"
+              /* Centered on mobile, right-aligned on tablet/desktop */
+              className="details flex max-w-2xl flex-col gap-2 items-center text-center sm:items-end sm:text-right text-dark-red!"
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.3 }}
@@ -295,40 +303,47 @@ export default function Homepage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-                className="font-semibold text-3xl"
+                /* Smaller text on mobile (text-xl/2xl), original 3xl on desktop */
+                className="font-semibold text-xl sm:text-2xl md:text-3xl"
               >
                 What we seek to accomplish?
               </motion.h3>
+
               <motion.p
                 initial={{ opacity: 0, x: 40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                className="text-sm"
+                /* Compact text size (text-[11px] or text-xs) on mobile, text-sm on desktop */
+                className="text-[11px] xs:text-xs sm:text-sm leading-snug sm:leading-normal"
               >
                 At One Desire Foundation, our mission is to transform and
-                elevate <br />
+                elevate <br className="hidden sm:inline" />
                 the quality of life for individuals and families impacted by{" "}
-                <br />
+                <br className="hidden sm:inline" />
                 sickle cell disease through comprehensive support, empowering{" "}
-                <br />
+                <br className="hidden sm:inline" />
                 education, and relentless advocacy. <br />
                 <br /> We exist to rewrite the narrative surrounding this
-                condition—shifting feelings of <br />
+                condition—shifting feelings of{" "}
+                <br className="hidden sm:inline" />
                 isolation into a deep sense of belonging, and vulnerability into{" "}
-                <br />
-                enduring strength. From providing practical resources and <br />
+                <br className="hidden sm:inline" />
+                enduring strength. From providing practical resources and{" "}
+                <br className="hidden sm:inline" />
                 compassionate care to dismantling stigma and driving equitable{" "}
-                <br />
+                <br className="hidden sm:inline" />
                 healthcare policy, our commitment spans every stage of the
-                patient <br />
+                patient <br className="hidden sm:inline" />
                 journey. <br />
                 <br /> We operate on a simple, foundational truth: no one should{" "}
-                <br />
+                <br className="hidden sm:inline" />
                 ever have to fight this battle alone.
               </motion.p>
+
               <motion.div
-                className="buttons flex items-center justify-end gap-2"
+                /* Centered on mobile, right-aligned on desktop */
+                className="buttons flex items-center justify-center sm:justify-end gap-2"
                 initial={{ opacity: 0, x: 40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
@@ -337,10 +352,10 @@ export default function Homepage() {
                 <Link to="/about">
                   <Button
                     variant="ghost"
-                    className="flex items-center gap-1 text-primary-red hover:text-dark-red"
+                    className="flex items-center gap-1 text-primary-red hover:text-dark-red text-xs sm:text-sm"
                   >
                     About us
-                    <ArrowUpRight />
+                    <ArrowUpRight className="w-4 h-4" />
                   </Button>
                 </Link>
               </motion.div>
@@ -349,13 +364,8 @@ export default function Homepage() {
         </section>
 
         {/* Partners Section */}
-        {/* Partners Section */}
-        <section className="partners w-full overflow-hidden py-16">
-          <div className="mb-8 text-center">
-            <p className="text-xs font-medium uppercase tracking-[0.32em] text-foreground/60">
-              Our partners
-            </p>
-          </div>
+        <section className="partners w-full overflow-hidden py-8 my-4 flex flex-col gap-4 mt-8 md:gap-6">
+          <SectionTitle label="Our partners" />
 
           <div className="relative overflow-hidden">
             <motion.div
@@ -370,7 +380,7 @@ export default function Homepage() {
               {marqueeLogos.map((logo, index) => (
                 <div
                   key={index}
-                  className="flex h-28 w-52 shrink-0 items-center justify-center p-4 mr-10"
+                  className="flex h-16 w-36 md:h-32 md:w-64 shrink-0 items-center justify-center p-2 mr-6"
                 >
                   <img
                     src={logo}
