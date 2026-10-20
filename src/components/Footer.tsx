@@ -13,6 +13,9 @@ export default function Footer() {
               <img
                 src="/logo.png"
                 alt=""
+                width={64}
+                height={64}
+                decoding="async"
                 className="h-full w-full object-contain"
               />
             </span>

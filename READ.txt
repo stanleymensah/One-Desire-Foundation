@@ -1,0 +1,6 @@
+npm run optimize-images
+|
+|
++--> makes webp images
+
+// Run after the whole project done

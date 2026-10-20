@@ -1,7 +1,7 @@
-import Y4K from "@/assets/Y4K.jpg";
-import OneWash from "@/assets/one-wash.png";
-import Charity from "@/assets/charity-drive.png";
-import Launch from "@/assets/launch.png";
+import Y4K from "@/assets/Y4K.webp";
+import OneWash from "@/assets/one-wash.webp";
+import Charity from "@/assets/charity-drive.webp";
+import Launch from "@/assets/launch.webp";
 
 type FoundationActivity = {
   name: string;

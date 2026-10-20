@@ -1,14 +1,14 @@
-import heroImage from "@/assets/hero.png";
-import outreachImage from "@/assets/outreach.png";
-import schoolsImage from "@/assets/schools.png";
-import drivesImage from "@/assets/drives.png";
-import pintsImage from "@/assets/pints.png";
-import volunteersImage from "@/assets/volunteers.png";
-import missionBanner from "@/assets/mission.png";
-import enterpriseImage from "@/assets/enterprise.png";
-import ghanaBloodServiceImage from "@/assets/ghana_blood_service.png";
-import donatingGuy from "@/assets/donation.png";
-import norvatisImage from "@/assets/norvatis.png";
+import heroImage from "@/assets/hero.webp";
+import outreachImage from "@/assets/outreach.webp";
+import schoolsImage from "@/assets/schools.webp";
+import drivesImage from "@/assets/drives.webp";
+import pintsImage from "@/assets/pints.webp";
+import volunteersImage from "@/assets/volunteers.webp";
+import missionBanner from "@/assets/mission.webp";
+import enterpriseImage from "@/assets/enterprise.webp";
+import ghanaBloodServiceImage from "@/assets/ghana_blood_service.webp";
+import donatingGuy from "@/assets/donation.webp";
+import norvatisImage from "@/assets/norvatis.webp";
 import { Button } from "@/components/ui/button";
 import { motion, animate, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -142,7 +142,9 @@ export default function Homepage() {
         <section className="relative w-full overflow-hidden bg-transparent">
           <img
             src={heroImage}
-            alt="hero"
+            alt="Community members supporting a blood donation campaign"
+            fetchPriority="high"
+            decoding="async"
             className="block h-[calc(100vh-80px)] w-full object-cover object-center bg-transparent opacity-0 md:opacity-100"
           />
 
@@ -223,6 +225,10 @@ export default function Homepage() {
                     <img
                       src={item.image}
                       alt={item.label}
+                      width={64}
+                      height={64}
+                      loading="lazy"
+                      decoding="async"
                       className="h-16 w-16 shrink-0 object-contain"
                     />
                     <div className="detail flex flex-col items-start gap-1 text-left">
@@ -286,7 +292,9 @@ export default function Homepage() {
         <section className="relative w-full items-center my-24 md:my-0">
           <img
             src={missionBanner}
-            alt="mission_banner_image"
+            alt="Our mission to support people affected by sickle cell disease"
+            loading="lazy"
+            decoding="async"
             className="w-full object-cover hidden md:flex"
           />
           <div className="absolute inset-0 z-50 flex items-center justify-center sm:justify-end px-4 sm:px-10 lg:px-20">
@@ -385,6 +393,8 @@ export default function Homepage() {
                   <img
                     src={logo}
                     alt={`partner-logo-${(index % partnerLogos.length) + 1}`}
+                    loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-contain"
                   />
                 </div>
@@ -399,6 +409,8 @@ export default function Homepage() {
               <img
                 src={donatingGuy}
                 alt="A person making a donation"
+                loading="lazy"
+                decoding="async"
                 className="absolute inset-0 h-full w-full object-cover"
               />
               <div

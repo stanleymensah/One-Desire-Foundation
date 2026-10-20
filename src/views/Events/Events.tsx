@@ -1,7 +1,7 @@
 import { events } from "@/data/events";
 import { motion } from "framer-motion";
-import heroImage from "@/assets/event.png";
-import Y4K from "@/assets/Y4K.jpg";
+import heroImage from "@/assets/event.webp";
+import Y4K from "@/assets/Y4K.webp";
 import {
   Dialog,
   DialogClose,
@@ -34,7 +34,9 @@ export default function Events() {
           <section className="relative w-full overflow-hidden bg-transparent">
             <img
               src={heroImage}
-              alt="hero"
+              alt="Community events and campaigns"
+              fetchPriority="high"
+              decoding="async"
               className="block h-[calc(100vh-80px)] w-full object-cover object-center bg-transparent"
             />
 
@@ -89,7 +91,9 @@ export default function Events() {
                     >
                       <img
                         src={poster}
-                        alt=""
+                        alt={event.name}
+                        loading="lazy"
+                        decoding="async"
                         className="h-full w-full object-cover transition duration-500 group-hover:scale-105 group-focus:scale-105"
                       />
                       <span
@@ -113,7 +117,9 @@ export default function Events() {
                       <div className="relative">
                         <img
                           src={poster}
-                          alt=""
+                          alt={event.name}
+                          loading="lazy"
+                          decoding="async"
                           className="h-56 w-full object-cover sm:h-64"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-black/20" />

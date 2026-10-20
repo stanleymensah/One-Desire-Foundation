@@ -35,6 +35,8 @@ export function EventDetailDialog({
             <img
               src={typeof details.image === "string" ? details.image : details.image.src}
               alt={details.name}
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover rounded-xs"
             />
           </div>
