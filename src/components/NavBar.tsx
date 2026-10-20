@@ -91,16 +91,18 @@ export default function NavBar({ className = "" }: NavBarProps) {
 
         <div className="flex items-center justify-end">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-dark-red hover:bg-zinc-100/80 hover:text-dark-red rounded-xs"
-                aria-label="Toggle Menu"
-              >
-                <Menu className="w-6 h-6" />
-              </Button>
-            </SheetTrigger>
+            <SheetTrigger
+              render={
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-dark-red hover:bg-zinc-100/80 hover:text-dark-red rounded-xs"
+                  aria-label="Toggle Menu"
+                >
+                  <Menu className="w-6 h-6" />
+                </Button>
+              }
+            />
 
             <SheetContent side="right" className="w-[280px] p-6 rounded-xs flex flex-col justify-between">
               <div>

@@ -221,7 +221,7 @@ export default function AllEvents() {
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      {visible.map(({ event, date }) => (
+                      {visible.map(({ event }) => (
                         <button
                           key={event.id}
                           type="button"
