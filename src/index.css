@@ -8,6 +8,7 @@
 @theme inline {
     --font-heading: var(--font-sans);
     --font-sans: 'Geist Variable', sans-serif;
+    --font-serif: 'Fraunces', Georgia, serif;
     --color-primary-red: var(--primary-red);
     --color-dark-red: var(--dark-red);
     --color-accent-red: var(--accent-red);
