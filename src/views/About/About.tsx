@@ -12,6 +12,11 @@ import {
   UsersRound,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import aboutHeroImage from "@/assets/about_hero.png";
+import volunteersImage from "@/assets/volunteers.webp";
+import enterpriseImage from "@/assets/enterprise.webp";
+import ghanaBloodServiceImage from "@/assets/ghana_blood_service.webp";
+import norvatisImage from "@/assets/norvatis.webp";
 
 export default function About() {
   useEffect(() => {
@@ -66,10 +71,17 @@ export default function About() {
   ];
 
   const partners = [
-    { name: "National Blood Service Ghana", logo: "/images/partner-blood-service.png", type: "Clinical Blood Partner" },
-    { name: "Enterprise Life", logo: "/images/partner-enterprise.png", type: "Corporate Partner" },
-    { name: "UGMC Ghana", logo: "/images/partner-ugmc.jpg", type: "Healthcare Partner" },
-    { name: "GICG Korle-Bu", logo: "/images/partner-gicg.jpg", type: "Clinical Genetics Partner" },
+    {
+      name: "Enterprise Life",
+      logo: enterpriseImage,
+      website: "https://mobilife.enterprisegroup.net.gh/",
+    },
+    {
+      name: "National Blood Service Ghana",
+      logo: ghanaBloodServiceImage,
+      website: "https://nbs.gov.gh/",
+    },
+    { name: "Novartis", logo: norvatisImage, website: "https://www.novartis.com" },
   ];
 
   return (
@@ -77,18 +89,18 @@ export default function About() {
       {/* 1. HERO SECTION (ONE-SIDED LAYOUT MATCHING HOMEPAGE) */}
       <section className="relative w-full overflow-hidden bg-transparent">
         <img
-          src="/images/about_hero_hands.webp"
-          alt="One Desire Foundation compassionate hands supporting each other"
+          src={aboutHeroImage}
+          alt="A sickle cell advocate representing the people supported by One Desire Foundation"
           fetchPriority="high"
           decoding="async"
           className="block h-[calc(100vh-80px)] w-full object-cover object-center bg-transparent"
         />
 
         {/* Soft gradient overlay on the left for text legibility */}
-        <div
+        {/* <div
           aria-hidden="true"
           className="absolute inset-0 bg-gradient-to-r from-[#a3d3cf]/95 via-[#a3d3cf]/70 to-transparent sm:from-[#a3d3cf]/90 sm:via-[#a3d3cf]/50 sm:to-transparent pointer-events-none"
-        />
+        /> */}
 
         {/* Outer Overlay: Centered on mobile, left-aligned on sm+ (matching Homepage) */}
         <div className="details absolute inset-0 z-20 flex items-center justify-center sm:justify-start px-6 sm:px-10 lg:px-24">
@@ -273,7 +285,7 @@ export default function About() {
           <div className="lg:col-span-6">
             <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-4/3 bg-slate-100">
               <img
-                src="/images/team_mission.webp"
+                src={volunteersImage}
                 alt="One Desire Foundation volunteer community and healthcare team"
                 className="w-full h-full object-cover"
                 loading="lazy"
@@ -407,10 +419,13 @@ export default function About() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 items-center">
-            {partners.map((partner, idx) => (
-              <div
-                key={idx}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-center">
+            {partners.map((partner) => (
+              <a
+                key={partner.name}
+                href={partner.website}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-white rounded-xl p-6 border border-slate-200/80 shadow-xs flex flex-col items-center justify-center text-center gap-3 h-36 hover:shadow-md transition-shadow"
               >
                 <img
@@ -422,7 +437,7 @@ export default function About() {
                 <span className="text-xs font-medium text-slate-600">
                   {partner.name}
                 </span>
-              </div>
+              </a>
             ))}
           </div>
         </div>
